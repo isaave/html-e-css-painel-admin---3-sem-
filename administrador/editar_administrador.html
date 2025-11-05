@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Administrador</title>
+    <link rel="stylesheet" href="../css/atomic/main.css">
+    <link rel="stylesheet" href="../css/atomic/form-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<button class="menu-btn" aria-label="Abrir menu" aria-expanded="false">&#9776;</button>
+    
+    <div class="hamburguer">
+        <img class="logo" src="../img/Logo.png" alt="Logo">
+        <nav class="nav">
+            <ul>
+                <li class="category"><a href="#">ADMINISTRADOR</a>
+                    <ul class="submenu">
+                        <li><a href="./listar_administrador.html">LISTAR</a></li>
+                        <li><a href="./cadastrar_administrador.html">CADASTRAR</a></li>
+                    </ul>
+                </li>
+                <li class="category"><a href="#">CATEGORIA</a>
+                    <ul class="submenu">
+                        <li><a href="listar_categorias.html">LISTAR</a></li>
+                        <li><a href="./cadastrar_categorias.html">CADASTRAR</a></li>
+                    </ul>
+                </li>
+                <li class="category"><a href="#">FORNECEDOR</a>
+                    <ul class="submenu">
+                        <li><a href="listar_fornecedores.html">LISTAR</a></li>
+                        <li><a href="./cadastrar_fornecedores.html">CADASTRAR</a></li>
+                    </ul>
+                </li>
+                <li class="category"><a href="#">PRODUTO</a>
+                    <ul class="submenu">
+                        <li><a href="listar_produtos.html">LISTAR</a></li>
+                        <li><a href="./cadastrar_produtos.html">CADASTRAR</a></li>
+                    </ul>
+                </li>
+                <li class="category"><a href="#">SUBCATEGORIA</a>
+                    <ul class="submenu">
+                        <li><a href="listar_subcategorias.html">LISTAR</a></li>
+                        <li><a href="./cadastrar_subcategorias.html">CADASTRAR</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="container">
+    <h2>Editar Administrador</h2>
+    <form method="post">
+        <label for="adm_nome">Nome:</label>
+        <input type="text" name="adm_nome" id="adm_nome" value="Nome do Administrador" required>
+
+        <label for="adm_email">Email:</label>
+        <input type="email" name="adm_email" id="adm_email" value="admin.exemplo@site.com" required>
+
+        <label for="senha">Nova Senha (deixe vazio para não alterar):</label>
+        <div class="input-group">
+            <input type="password" id="senha" name="senha" placeholder="Nova senha (mínimo 8 caracteres)" minlength="8">
+            <span class="eye" onclick="alternarSenha()">
+                <i class="fas fa-eye" id="iconeOlho"></i>
+            </span>
+        </div>
+
+        <label for="adm_ativo">Ativo:</label>
+        <input type="checkbox" name="adm_ativo" id="adm_ativo" checked>
+
+        <br><br>
+        <button type="submit">Salvar Alterações</button>
+    </form>
+
+    <div style="text-align: center;">
+        <a href="listar_administrador.html">Voltar para a listagem</a>
+    </div>
+</div>
+
+<script src="js/script.js"></script> 
+<script>
+function alternarSenha() {
+    const senhaInput = document.getElementById("senha");
+    const icone = document.getElementById("iconeOlho");
+
+    if (senhaInput.type === "password") {
+        senhaInput.type = "text";
+        icone.classList.remove("fa-eye");
+        icone.classList.add("fa-eye-slash");
+    } else {
+        senhaInput.type = "password";
+        icone.classList.remove("fa-eye-slash");
+        icone.classList.add("fa-eye");
+    }
+}
+</script>
+</body>
+</html>

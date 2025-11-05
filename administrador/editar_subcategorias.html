@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Subcategoria</title>
+    <link rel="stylesheet" href="../css/atomic/main.css">
+    <link rel="stylesheet" href="../css/atomic/form-styles.css">
+</head>
+<body>
+
+    <button class="menu-btn" aria-label="Abrir menu" aria-expanded="false">&#9776;</button>
+    
+    <div class="hamburguer">
+        <img class="logo" src="../img/Logo.png" alt="Logo">
+        <nav class="nav">
+            <ul>
+                <li class="category"><a href="#">ADMINISTRADOR</a>
+                    <ul class="submenu">
+                        <li><a href="./listar_administrador.html">LISTAR</a></li>
+                        <li><a href="./cadastrar_administrador.html">CADASTRAR</a></li>
+                    </ul>
+                </li>
+                <li class="category"><a href="#">CATEGORIA</a>
+                    <ul class="submenu">
+                        <li><a href="listar_categorias.html">LISTAR</a></li>
+                        <li><a href="./cadastrar_categorias.html">CADASTRAR</a></li>
+                    </ul>
+                </li>
+                <li class="category"><a href="#">FORNECEDOR</a>
+                    <ul class="submenu">
+                        <li><a href="listar_fornecedores.html">LISTAR</a></li>
+                        <li><a href="./cadastrar_fornecedores.html">CADASTRAR</a></li>
+                    </ul>
+                </li>
+                <li class="category"><a href="#">PRODUTO</a>
+                    <ul class="submenu">
+                        <li><a href="listar_produtos.html">LISTAR</a></li>
+                        <li><a href="./cadastrar_produtos.html">CADASTRAR</a></li>
+                    </ul>
+                </li>
+                <li class="category"><a href="#">SUBCATEGORIA</a>
+                    <ul class="submenu">
+                        <li><a href="listar_subcategorias.html">LISTAR</a></li>
+                        <li><a href="./cadastrar_subcategorias.html">CADASTRAR</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="container">
+    <h2>Editar Subcategoria</h2>
+
+    <form method="post">
+        <label for="idcategoria">Categoria:</label>
+        <select name="idcategoria" id="idcategoria" required>
+            <option value="">Selecione a categoria</option>
+            <option value="1">Perfumaria</option>
+            <option value="2" selected>Cosméticos (Atual)</option>
+            <option value="3">Higiene Pessoal</option>
+        </select>
+
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" id="nome" value="Maquiagem" required>
+
+        <button type="submit">Salvar Alterações</button>
+    </form>
+
+    <div style="text-align: center;">
+        <a href="listar_subcategorias.html">Voltar para a listagem</a>
+    </div>
+</div>
+
+<script src="js/script.js"></script> 
+</body>
+</html>

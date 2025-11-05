@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Fornecedor</title>
+    <link rel="stylesheet" href="../css/atomic/main.css">
+    <link rel="stylesheet" href="../css/atomic/form-styles.css">
+</head>
+<body>
+
+<button class="menu-btn" aria-label="Abrir menu" aria-expanded="false">&#9776;</button>
+    
+    <div class="hamburguer">
+        <img class="logo" src="../img/Logo.png" alt="Logo">
+        <nav class="nav">
+            <ul>
+                <li class="category"><a href="#">ADMINISTRADOR</a>
+                    <ul class="submenu">
+                        <li><a href="./listar_administrador.html">LISTAR</a></li>
+                        <li><a href="./cadastrar_administrador.html">CADASTRAR</a></li>
+                    </ul>
+                </li>
+                <li class="category"><a href="#">CATEGORIA</a>
+                    <ul class="submenu">
+                        <li><a href="listar_categorias.html">LISTAR</a></li>
+                        <li><a href="./cadastrar_categorias.html">CADASTRAR</a></li>
+                    </ul>
+                </li>
+                <li class="category"><a href="#">FORNECEDOR</a>
+                    <ul class="submenu">
+                        <li><a href="listar_fornecedores.html">LISTAR</a></li>
+                        <li><a href="./cadastrar_fornecedores.html">CADASTRAR</a></li>
+                    </ul>
+                </li>
+                <li class="category"><a href="#">PRODUTO</a>
+                    <ul class="submenu">
+                        <li><a href="listar_produtos.html">LISTAR</a></li>
+                        <li><a href="./cadastrar_produtos.html">CADASTRAR</a></li>
+                    </ul>
+                </li>
+                <li class="category"><a href="#">SUBCATEGORIA</a>
+                    <ul class="submenu">
+                        <li><a href="listar_subcategorias.html">LISTAR</a></li>
+                        <li><a href="./cadastrar_subcategorias.html">CADASTRAR</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    
+    <div class="container">
+    <h2>Editar Fornecedor</h2>
+
+    <form method="post">
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" id="nome" value="Nome Fantasia Exemplo Ltda" required>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" value="contato@exemplo.com" required>
+
+        <label for="cnpj">CNPJ:</label>
+        <input type="text" name="cnpj" id="cnpj" placeholder="00.000.000/0000-00" value="12.345.678/0001-90" required>
+
+        <label for="endereco">Endereço:</label>
+        <input type="text" name="endereco" id="endereco" value="Rua Exemplo, 123 - Cidade" required>
+
+        <label for="telefone">Telefone:</label>
+        <input type="text" name="telefone" id="telefone" placeholder="(00) 00000-0000" value="(11) 98765-4321" required>
+
+        <button type="submit">Salvar Alterações</button>
+    </form>
+
+    <div style="text-align: center;">
+        <a href="listar_fornecedores.html">Voltar para a listagem</a>
+    </div>
+</div>
+
+<script src="js/script.js"></script> 
+
+<script>
+    // Ativa as máscaras no carregamento da página
+    document.addEventListener("DOMContentLoaded", function() {
+        const cnpjInput = document.getElementById('cnpj');
+        const telefoneInput = document.getElementById('telefone');
+
+        if (cnpjInput) {
+            cnpjInput.addEventListener('input', function() {
+                mascaracnpj(this);
+            });
+        }
+        if (telefoneInput) {
+            telefoneInput.addEventListener('input', function() {
+                mascaratelefone(this);
+            });
+        }
+    });
+
+    // Funções de máscara (devem ser transferidas para o js/script.js para uso global)
+    function mascaracnpj(campo) {
+        campo.value = campo.value
+            .replace(/\D/g, '')
+            .replace(/^(\d{2})(\d)/, '$1.$2')
+            .replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3')
+            .replace(/\.(\d{3})(\d)/, '.$1/$2')
+            .replace(/(\d{4})(\d)/, '$1-$2')
+            .replace(/(-\d{2})\d+?$/, '$1');
+    }
+
+    function mascaratelefone(campo) {
+        campo.value = campo.value
+            .replace(/\D/g, '')
+            .replace(/^(\d{2})(\d)/g, '($1) $2')
+            .replace(/(\d{5})(\d)/, '$1-$2')
+            .replace(/(-\d{4})\d+?$/, '$1');
+    }
+</script>
+</body>
+</html>
