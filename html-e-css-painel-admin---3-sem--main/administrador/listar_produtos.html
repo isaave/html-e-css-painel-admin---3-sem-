@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Produtos</title>
+    <link rel="stylesheet" href="../css/atomic/main.css">
+    <link rel="stylesheet" href="../css/list-styles.css"> 
+    <link rel="icon" type="image/png" href="../img/logo.png">
+</head>
+
+<body class="listagem-body">
+
+    <button class="menu-btn" aria-label="Abrir menu" aria-expanded="false">&#9776;</button>
+        
+    <div class="hamburguer">
+        <img class="logo" src="../img/Logo.png" alt="Logo">
+        <nav class="nav">
+            <ul>
+                <li class="category"><a href="#">ADMINISTRADOR</a>
+                    <ul class="submenu">
+                        <li><a href="./listar_administrador.html">LISTAR</a></li>
+                        <li><a href="./cadastrar_administrador.html">CADASTRAR</a></li>
+                    </ul>
+                </li>
+                <li class="category"><a href="#">CATEGORIA</a>
+                    <ul class="submenu">
+                        <li><a href="listar_categorias.html">LISTAR</a></li>
+                        <li><a href="./cadastrar_categorias.html">CADASTRAR</a></li>
+                    </ul>
+                </li>
+                <li class="category"><a href="#">FORNECEDOR</a>
+                    <ul class="submenu">
+                        <li><a href="listar_fornecedores.html">LISTAR</a></li>
+                        <li><a href="./cadastrar_fornecedores.html">CADASTRAR</a></li>
+                    </ul>
+                </li>
+                <li class="category"><a href="#">PRODUTO</a>
+                    <ul class="submenu">
+                        <li><a href="listar_produtos.html">LISTAR</a></li>
+                        <li><a href="./cadastrar_produtos.html">CADASTRAR</a></li>
+                    </ul>
+                </li>
+                <li class="category"><a href="#">SUBCATEGORIA</a>
+                    <ul class="submenu">
+                        <li><a href="listar_subcategorias.html">LISTAR</a></li>
+                        <li><a href="./cadastrar_subcategorias.html">CADASTRAR</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="listagem-container">
+        
+        <header class="listagem-header">
+            <h1>Lista de Produtos</h1>
+            <div class="search-box">
+                <input type="text" placeholder="O que procura?">
+                <button aria-label="Pesquisar">&#128269;</button>
+            </div>
+        </header>
+
+        <div class="tabela-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="col-id">ID</th>
+                        <th>NOME</th>
+                        <th>IMAGEM</th>
+                        <th>FORNECEDOR (ID)</th>
+                        <th>DESCRIÇÃO</th>
+                        <th>SUBCATEGORIA (ID)</th>
+                        <th>ESTOQUE</th>
+                        <th>PREÇO</th>
+                        <th class="col-acoes">AÇÕES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Perfume Floral Exótico</td>
+                        <td>
+                            <img src="../img/produto_floral.jpg" alt="Imagem do Produto" style="max-width: 50px; height: auto;">
+                        </td>
+                        <td>101</td>
+                        <td>Fragrância leve para o dia a dia.</td>
+                        <td>201</td>
+                        <td><span class="status-ativo">50 unidades</span></td>
+                        <td>R$ 159,90</td>
+                        <td class="acoes-btns">
+                            <a href="mostrar_produto.html?id=1" class="action-view" title="Visualizar">&#128065;</a>
+                            <a href="editar_produtos.html?id=1" class="action-edit" title="Editar">&#x270E;</a>
+                            <a href="excluir_produtos.html?id=1" class="action-delete" title="Excluir" onclick="return confirmDeletion();">&#x2716;</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Batom Matte Vermelho</td>
+                        <td>
+                            <img src="../img/produto_batom.jpg" alt="Imagem do Produto" style="max-width: 50px; height: auto;">
+                        </td>
+                        <td>102</td>
+                        <td>Alta pigmentação e longa duração.</td>
+                        <td>305</td>
+                        <td><span class="status-ativo">120 unidades</span></td>
+                        <td>R$ 45,50</td>
+                        <td class="acoes-btns">
+                            <a href="mostrar_produto.html?id=2" class="action-view" title="Visualizar">&#128065;</a>
+                            <a href="editar_produtos.html?id=2" class="action-edit" title="Editar">&#x270E;</a>
+                            <a href="excluir_produtos.html?id=2" class="action-delete" title="Excluir" onclick="return confirmDeletion();">&#x2716;</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Creme Hidratante Corporal</td>
+                        <td>Sem imagem</td> 
+                        <td>101</td>
+                        <td>Hidratação intensa com aroma de lavanda.</td>
+                        <td>402</td>
+                        <td><span class="status-inativo">80 unidades</span></td>
+                        <td>R$ 75,00</td>
+                        <td class="acoes-btns">
+                            <a href="mostrar_produto.html" class="action-view" title="Visualizar">&#128065;</a>
+                            <a href="editar_produtos.html" class="action-edit" title="Editar">&#x270E;</a>
+                            <a href="excluir_produtos.html" class="action-delete" title="Excluir" onclick="return confirmDeletion();">&#x2716;</a>
+                        </td>
+                    </tr>
+                    </tbody>
+            </table>
+        </div>
+        
+        <div class="controles-inferiores">
+            <div class="botoes-acao">
+                <a href="exportar_excel.html" target="_blank" class="btn btn-exportar">EXPORTAR PRODUTOS</a>
+                <a href="cadastrar_produtos.html" class="btn btn-cadastrar">CADASTRAR NOVO PRODUTO</a>
+                <a href="paineladmin.html" class="btn btn-voltar">VOLTAR PARA PAINEL</a>
+            </div>
+            
+            <div class="paginacao">
+                <a href="#" class="page-link active">1</a>
+                <a href="#" class="page-link">2</a>
+                <a href="#" class="page-link">3</a>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Função de exemplo para a confirmação de exclusão
+        function confirmDeletion() {
+            return confirm("Tem certeza que deseja excluir este produto?");
+        }
+    </script>
+</body>
+</html>

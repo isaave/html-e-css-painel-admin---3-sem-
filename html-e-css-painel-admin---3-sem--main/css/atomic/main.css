@@ -1,0 +1,30 @@
+/* Atoms */
+@import url("atoms/buttons.css");
+@import url("atoms/corpo.css");
+@import url("atoms/img.css");
+@import url("atoms/input.css");
+@import url("atoms/label.css");
+@import url("atoms/links.css");
+@import url("atoms/paragrafos.css");
+@import url("atoms/painel.css");
+
+
+
+/* Molecules */
+@import url("molecules/ui.css");
+
+
+
+
+/* Organisms */
+@import url("organisms/princiapl.css");
+@import url("organisms/list-styles.css");
+@import url("organisms/form-styles.css");
+
+
+
+
+
+
+
+

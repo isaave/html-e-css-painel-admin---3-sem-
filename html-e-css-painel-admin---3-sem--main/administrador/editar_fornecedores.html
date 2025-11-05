@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Fornecedor</title>
+    <link rel="stylesheet" href="../css/atomic/main.css">
+    <link rel="stylesheet" href="../css/form-styles.css">
+    <link rel="icon" type="image/png" href="../img/logo.png">
+</head>
+<body class="form-body">
+
+<button class="menu-btn" aria-label="Abrir menu" aria-expanded="false">&#9776;</button>
+    
+    <div class="hamburguer">
+        <img class="logo" src="../img/Logo.png" alt="Logo">
+        <nav class="nav">
+            <ul>
+                <li class="category"><a href="#">ADMINISTRADOR</a>
+                    <ul class="submenu">
+                        <li><a href="./listar_administrador.html">LISTAR</a></li>
+                        <li><a href="./cadastrar_administrador.html">CADASTRAR</a></li>
+                    </ul>
+                </li>
+                <li class="category"><a href="#">CATEGORIA</a>
+                    <ul class="submenu">
+                        <li><a href="listar_categorias.html">LISTAR</a></li>
+                        <li><a href="./cadastrar_categorias.html">CADASTRAR</a></li>
+                    </ul>
+                </li>
+                <li class="category"><a href="#">FORNECEDOR</a>
+                    <ul class="submenu">
+                        <li><a href="listar_fornecedores.html">LISTAR</a></li>
+                        <li><a href="./cadastrar_fornecedores.html">CADASTRAR</a></li>
+                    </ul>
+                </li>
+                <li class="category"><a href="#">PRODUTO</a>
+                    <ul class="submenu">
+                        <li><a href="listar_produtos.html">LISTAR</a></li>
+                        <li><a href="./cadastrar_produtos.html">CADASTRAR</a></li>
+                    </ul>
+                </li>
+                <li class="category"><a href="#">SUBCATEGORIA</a>
+                    <ul class="submenu">
+                        <li><a href="listar_subcategorias.html">LISTAR</a></li>
+                        <li><a href="./cadastrar_subcategorias.html">CADASTRAR</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+            <h1>Editar Fornecedor</h1>
+
+    <div class="form-container">
+
+        <form class="cadastro-form" method="post">
+            
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" id="nome" value="Nome Fantasia Exemplo Ltda" placeholder="DIGITE O NOME DO FORNECEDOR" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" value="contato@exemplo.com" placeholder="DIGITE O E-MAIL" required>
+            </div>
+
+            <div class="form-group">
+                <label for="cnpj">CNPJ:</label>
+                <input type="text" name="cnpj" id="cnpj" oninput="mascaracnpj(this)" placeholder="00.000.000/0000-00" value="12.345.678/0001-90" required>
+            </div>
+
+            <div class="form-group">
+                <label for="endereco">Endereço:</label>
+                <input type="text" name="endereco" id="endereco" value="Rua Exemplo, 123 - Cidade" placeholder="DIGITE O ENDEREÇO COMPLETO" required>
+            </div>
+
+            <div class="form-group">
+                <label for="telefone">Telefone:</label>
+                <input type="text" name="telefone" id="telefone" oninput="mascaratelefone(this)" placeholder="(00) 00000-0000" value="(11) 98765-4321" required>
+            </div>
+
+            <button type="submit" class="btn-confirmar">Salvar Alterações</button>
+        </form>
+
+        <div class="form-links">
+            <a href="paineladmin.html" class="btn btn-voltar">Voltar para Painel</a>
+            <a href="listar_fornecedores.html" class="btn btn-lista">Listar Fornecedores</a>
+        </div>
+    </div>
+
+<script src="js/script.js"></script> 
+
+<script>
+    // Ativa as máscaras no carregamento da página
+    document.addEventListener("DOMContentLoaded", function() {
+        const cnpjInput = document.getElementById('cnpj');
+        const telefoneInput = document.getElementById('telefone');
+
+        if (cnpjInput) {
+            cnpjInput.addEventListener('input', function() {
+                mascaracnpj(this);
+            });
+        }
+        if (telefoneInput) {
+            telefoneInput.addEventListener('input', function() {
+                mascaratelefone(this);
+            });
+        }
+    });
+
+    // Funções de máscara
+    function mascaracnpj(campo) {
+        campo.value = campo.value
+            .replace(/\D/g, '')
+            .replace(/^(\d{2})(\d)/, '$1.$2')
+            .replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3')
+            .replace(/\.(\d{3})(\d)/, '.$1/$2')
+            .replace(/(\d{4})(\d)/, '$1-$2')
+            .replace(/(-\d{2})\d+?$/, '$1');
+    }
+
+    function mascaratelefone(campo) {
+        campo.value = campo.value
+            .replace(/\D/g, '')
+            .replace(/^(\d{2})(\d)/g, '($1) $2')
+            .replace(/(\d{5})(\d)/, '$1-$2')
+            .replace(/(-\d{4})\d+?$/, '$1');
+    }
+</script>
+</body>
+</html>
